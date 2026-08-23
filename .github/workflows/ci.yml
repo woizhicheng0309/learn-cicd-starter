@@ -20,3 +20,19 @@ jobs: # when trigger, do the list of jobs
     
     - name: Check go version
       run: go test -cover ./... # the run key is use to run command in command line of the runner
+
+  style:
+    name: Style
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v6
+      
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.26.0"
+      
+      - name: Styling 
+        run: test -z "$(go fmt ./...)""
