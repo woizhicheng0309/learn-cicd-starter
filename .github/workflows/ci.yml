@@ -19,4 +19,4 @@ jobs: # when trigger, do the list of jobs
         go-version: "1.26.0"
     
     - name: Check go version
-      run: go test ./... # the run key is use to run command in command line of the runner
+      run: go test -cover ./... # the run key is use to run command in command line of the runner
