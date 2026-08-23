@@ -1,22 +1,22 @@
 name : ci
 
-on: 
+on: # trigger event
   pull_request:
-    branches: [main]
+    branches: [main] # it's possible to add more branches into the array
 
-jobs:
-  tests:
-    name: Tests
-    runs-on: ubuntu-latest
+jobs: # when trigger, do the list of jobs
+  tests: # first job
+    name: Tests # metadata of the job
+    runs-on: ubuntu-latest # specific runner to use
   
     steps:
     - name: Check out code
-      uses: actions/checkout@v6
+      uses: actions/checkout@v6 # reusable custom application - get the code so our workflow can access it
     
     - name: Set up Go
-      uses: actions/setup-go@v6
-      with: 
+      uses: actions/setup-go@v6 # reusable custome application - setup go environment
+      with: # specific the environment, remember to move it to next level!
         go-version: "1.26.0"
     
     - name: Check go version
-      run: go version
+      run: go test ./... # the run key is use to run command in command line of the runner
