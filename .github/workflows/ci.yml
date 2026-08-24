@@ -38,5 +38,4 @@ jobs: # when trigger, do the list of jobs
         run: test -z "$(go fmt ./...)"
       
       - name:  StaticCheck
-        run: go install honnef.co/go/tools/cmd/staticcheck@latest
-        run: staticcheck ./...
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest && staticcheck ./...
