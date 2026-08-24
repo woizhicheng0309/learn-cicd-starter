@@ -48,10 +48,10 @@ jobs: # when trigger, do the list of jobs
 
     steps:
       - name: Check out code
-        uses: action/checkout@v6
+        uses: actions/checkout@v6
       
       - name: Set up Go
-        uses: action/setup-go@v6
+        uses: actions/setup-go@v6
         with:
           go-version: "1.26.0"
       
