@@ -43,5 +43,17 @@ jobs: # when trigger, do the list of jobs
           staticcheck ./...
 
   security:
-    name: Install gosec
-    run: go install github.com/securego/gosec/v2/cmd/gosec@latest && gosec ./...
+    name: gosec
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: action/checkout@v6
+      
+      - name: Set up Go
+        uses: action/setup-go@v6
+        with:
+          go-version: "1.26.0"
+      
+      - name: Install gosec
+        run: go install github.com/securego/gosec/v2/cmd/gosec@latest && gosec ./...
