@@ -34,5 +34,10 @@ jobs: # when trigger, do the list of jobs
         with:
           go-version: "1.26.0"
       
-      - name: Styling 
+      - name: Styling
         run: test -z "$(go fmt ./...)"
+      
+      - name: StaticCheck
+        run: |
+          go install honnef.co/go/tools/cmd/staticcheck@latest
+          staticcheck ./...
