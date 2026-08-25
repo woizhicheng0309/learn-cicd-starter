@@ -43,7 +43,7 @@ jobs: # when trigger, do the list of jobs
           staticcheck ./...
 
   security:
-    name: Gosec
+    name: Tests
     runs-on: ubuntu-latest
 
     steps:
