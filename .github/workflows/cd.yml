@@ -18,4 +18,4 @@ jobs:
         go-version: "1.26.0"
     
     - name: Build prod script
-      run: docker build -t woizhicheng0309/notely:latest .
+      run: go build -o notely . && docker build -t woizhicheng0309/notely:latest .
