@@ -1,0 +1,21 @@
+name: cd
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  Deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v6
+    
+    - name: Setup Go
+      uses: actions/setup-go@v6
+      with:
+        go-verion: "1.26.0"
+    
+    - name: Build prod script
+      run: docker build -t woizhicheng0309/notely:latest .
