@@ -24,6 +24,9 @@ jobs:
     name: GCP
     runs-on: ubuntu-latest
     steps:
+    - name: checkout code
+      uses: actions/checkout@v6
+
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
       with:
