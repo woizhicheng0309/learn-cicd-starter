@@ -21,6 +21,8 @@ jobs:
       run: ./scripts/buildprod.sh && docker build -t woizhicheng0309/notely:latest .
 
   Setup GCP:
+    name: GCP
+    runs-on: ubuntu-latest
     steps:
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
