@@ -19,6 +19,9 @@ jobs:
     
     - name: Run script to build notely and build docker image
       run: ./scripts/buildprod.sh && docker build -t woizhicheng0309/notely:latest .
+    
+    - name: gcloud builds submit
+      run: echo "easy"
 
   Setup-GCP:
     name: GCP
