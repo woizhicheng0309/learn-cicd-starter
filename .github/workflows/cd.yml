@@ -19,16 +19,6 @@ jobs:
     
     - name: Run script to build notely and build docker image
       run: ./scripts/buildprod.sh && docker build -t woizhicheng0309/notely:latest .
-    
-    - name: gcloud builds submit
-      run: echo "easy"
-
-  Setup-GCP:
-    name: GCP
-    runs-on: ubuntu-latest
-    steps:
-    - name: checkout code
-      uses: actions/checkout@v6
 
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
@@ -40,9 +30,6 @@ jobs:
 
     - name: 'Use gcloud CLI'
       run: 'gcloud info'
-    
-    - name: Build notely binary
-      run: ./scripts/buildprod.sh && docker build -t woizhicheng0309/notely:latest .
     
     - name: gcloud builds submit
       run: gcloud builds submit --tag us-central1-docker.pkg.dev/notely-506700/notely-ar-repo/notely:latest .
